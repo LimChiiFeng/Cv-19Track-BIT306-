@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Test } from './testReport.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cv19t';
+  storedTestReports:Test[]=[];
+
+  onTestReportsAdded(test){
+    this.storedTestReports.push(test);
+  }
 }
