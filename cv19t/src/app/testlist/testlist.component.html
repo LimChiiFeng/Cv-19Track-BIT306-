@@ -7,5 +7,9 @@
   </mat-expansion-panel>
 </mat-accordion>
 
-<div *ngIf="testlists.length ==0 ">Add New Test</div>
+<div [ngClass]="'notesterContainer'" *ngIf="testlists.length ==0 ">
+  <img src="../../assets/img/noTestResultHvBg-removebg-preview.png">
+  <h1> Oh,ooh</h1>
+  <p>There is no test report saved here yet. Please click the very obvious appearing "Add New Test" button to create a new test report</p>
+</div>
 
