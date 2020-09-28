@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HeaderComponent} from './header/header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { ModalFormComponent } from './modal-form/modal-form.component';
 import { RecordNewTest } from './recordNewTest/recordnewtest.component';
 import { TestListComponent } from './testlist/testlist.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -13,6 +14,8 @@ import { MatCardModule } from'@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from "@angular/material/expansion";
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
 
 const appRoutes: Routes = [
   {path:'reportlist', component:TestListComponent},
@@ -24,7 +27,8 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     RecordNewTest,
-    TestListComponent
+    TestListComponent,
+    ModalFormComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,10 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
+    ReactiveFormsModule,
     FormsModule,
+    SidebarModule,
+    MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
