@@ -1,0 +1,61 @@
+mat-action-row{
+  margin-top: 0.5rem;
+  width:100%;
+  display: inline-flex;
+}
+
+mat-action-row button{
+  margin: 0.5rem 0.5rem auto 0;
+  font-size:18px;
+  height: max-content;
+  width:120px;
+}
+
+mat-form-field{
+  width:85%;
+  margin-left: 2rem;
+  /* background-color: green; */
+}
+
+mat-card{
+  margin-top:0.5rem;
+  display: grid;
+
+}
+
+mat-card button{
+  float:right;
+  margin: 0.5rem 1rem auto auto;
+  top:-0.3rem;
+}
+
+table{
+  width:100%;
+  padding:1rem;
+  margin:auto;
+  border-spacing:0;
+}
+
+table th, td{
+  border-bottom: silver 1px solid ;
+  /* background-color:green; */
+  padding: 1.4rem;
+  
+}
+
+
+.table-content:hover {
+    background-color: #f5f5f5;
+  }
+
+.testNameInfo{
+  text-align: left;
+  width: 85%;
+}
+
+.stockInfo{
+  text-align: center;
+
+}
+
+

@@ -1,0 +1,16 @@
+<h2>New Test</h2>
+<mat-card>
+  <form (submit)="onAddTest(testReport)" #testReport="ngForm">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Test Name"  name="testname" ngModel required #testname="ngModel">
+    <mat-error *ngIf="testname.invalid">This test must have a name for it</mat-error>
+  </mat-form-field>
+<mat-form-field>
+<textarea matInput rows="6" name="testresult" ngModel #testresult="ngModel" required></textarea>
+<mat-error *ngIf="testresult.invalid">This test have no result?</mat-error>
+</mat-form-field>
+
+<br>
+<button mat-raised-button color="accent" type="submit">Add Test Result</button>
+</form>
+</mat-card>

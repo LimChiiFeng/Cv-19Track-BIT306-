@@ -1,0 +1,24 @@
+<div class="test_centre_page">
+  <button mat-raised-button color="primary" (click)="centreRegDialog()" [disabled]="centre.length>3"> Create Test Centre </button>
+  <br>
+  <!-- <mat-accordion *ngIf="centre.length>0">
+    <mat-expansion-panel *ngFor="let centre of centre">
+      <mat-expansion-panel-header>
+        {{ centre.centreID }}
+      </mat-expansion-panel-header>
+      <p> {{ centre.centreName }} </p>
+    </mat-expansion-panel>
+  </mat-accordion> -->
+  <div class="centre" *ngIf="centre.length>0">
+    <div *ngFor="let centre of centre">
+      <h2> {{ centre.centreName }} </h2>
+      <hr>
+      <div class = "centreInfo">
+        <p> Tester Number: </p>
+        <p> Test Kit Number: </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+

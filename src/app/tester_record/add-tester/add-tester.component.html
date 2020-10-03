@@ -1,0 +1,19 @@
+<div class="addTester">
+    <mat-card>
+        <form name="testerForm" ngForm #testerForm="ngForm">
+            <mat-form-field>
+                <mat-label> Username </mat-label>
+                <input type="text" matInput name="username" ngModel #username="ngModel">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label> Password </mat-label>
+                <input type="password" matInput name="password" ngModel #password="ngModel">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label> Name </mat-label>
+                <input type="text" matInput name="name" ngModel #name="ngModel">
+            </mat-form-field>
+            <button mat-raised-button type="submit"> Register </button>
+        </form>
+    </mat-card>
+</div>
