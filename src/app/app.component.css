@@ -1,0 +1,38 @@
+
+main {
+  width:80%;
+  padding: auto 20px auto 20px;
+  margin: auto;
+}
+
+mat-toolbar{
+  width:auto;
+  padding:0;
+  background:linear-gradient(to left, #d5eefd, #4cbaff);
+  background-repeat: no-repeat;
+}
+
+mat-toolbar ul {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  display:block;
+}
+
+mat-toolbar ul li {
+  display:inline;
+  margin:auto 1rem auto 0.5rem;
+  padding:auto;
+}
+
+mat-toolbar a{
+  text-decoration:none;
+  color: #fbfeff;
+  letter-spacing: 0.5px;
+  transition-duration: 0.5s;
+  transition-delay: 0.2;
+}
+
+mat-toolbar a:hover, mat-toolbar a.active{
+  color:#0300a3;
+}

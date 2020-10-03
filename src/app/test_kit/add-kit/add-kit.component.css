@@ -1,0 +1,31 @@
+mat-card{
+  display:grid;
+}
+
+mat-form-field{
+  width:100%;
+  margin:auto;
+}
+
+#addKitBtn{
+  margin-top:0.5rem;
+  padding:auto;
+  width:15%;
+  float:right;
+}
+
+.addKitDialog{
+  padding:-1rem;
+  margin:auto;
+}
+
+.addKitDialog-header h2{
+  font-size:24px;
+  text-align:center;
+}
+
+.addKitDialog-header button{
+  font-size:24px;
+  margin: -3.5rem 0 auto auto;
+  float:right;
+}

@@ -1,0 +1,16 @@
+<mat-accordion multi="true" *ngIf="testlists.length>0">
+  <mat-expansion-panel *ngFor="let test of testlists">
+    <mat-expansion-panel-header>
+      {{test.testname}}
+    </mat-expansion-panel-header>
+    <p> {{test.testresult}}</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div [ngClass]="'notesterContainer'" *ngIf="testlists.length ==0 ">
+  <img src="../../assets/img/noTestResultHvBg-removebg-preview.png">
+  <h1> Oh,ooh</h1>
+  <p>There is no test report saved here yet. Please click the very obvious appearing "Add New Test" button to create a new test report</p>
+  <modal-form></modal-form>
+</div>
+

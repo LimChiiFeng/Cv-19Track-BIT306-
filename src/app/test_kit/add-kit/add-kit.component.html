@@ -1,0 +1,24 @@
+<div class="addTestKit">
+  <mat-card>
+    <div class="addKitDialog-header">
+      <h2 mat-card-title>New Test Kit</h2>
+      <button mat-icon-button mat-dialog-close>&times;</button>
+    </div>
+    <mat-dialog-content>
+      <form name='addKitForm' #addKitForm='ngForm' (submit)="addKit(addKitForm)">
+        <mat-form-field>
+          <mat-label> Test Name </mat-label>
+          <input type='text' matInput name='testName' ngModel #testName='ngModel' required>
+          <mat-error *ngIf="testName.invalid"> Please enter a test name </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label> Stock </mat-label>
+          <input type='number' matInput name='availableStock' ngModel #availableStock='ngModel' min='0' required>
+          <mat-error *ngIf="availableStock.invalid"> Please enter a stock number </mat-error>
+          <!-- <mat-error *ngIf="availableStock.errors"> Stock must be greater than or equal to 1 </mat-error> -->
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" name="addKitBtn" id="addKitBtn"> Add </button>
+      </form>
+    </mat-dialog-content>
+  </mat-card>
+</div>

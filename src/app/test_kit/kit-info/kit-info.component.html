@@ -1,0 +1,71 @@
+<div class="testKit">
+  <div class="kitActionGroup">
+    <mat-action-row>
+      <button mat-raised-button color="primary" (click)="addKitDialog()"> + Add </button>
+      
+      <mat-form-field>
+          <mat-placeholder>
+            <mat-icon> search </mat-icon>
+            <span> Search </span>
+          </mat-placeholder>
+        <input matInput type="text" name="searchName" id="searchName" [(ngModel)]="searchStr" (keyup)="search()">
+        <!-- <input matInput type="text" name="searchName" id="searchName" ngModel #searchName="ngModel" (keyup)="search(searchName)"> -->
+        <!-- (keyup)="searchKit($event)" -->
+        <!-- [(ngModel)]="searchName" (input)="searchKit() -->
+      </mat-form-field>
+    </mat-action-row>
+  </div>
+
+  <div>
+    
+  </div>
+
+  <!-- <p>{{searchName}}</p> -->
+  <!-- <p> {{ searchName.value }}</p> -->
+  <!-- <p> {{searchStrg}} </p> -->
+
+  <div class="testKitTable" *ngIf="kitsService.checkEmpty()==true">
+    <mat-card class="mat-elevation-z4">
+      <table >
+        <ng-container>
+          <tr class="table-header" >
+            <th class="testNameInfo" >Test Name</th>
+            <th class="stockInfo"> Available Stock </th>
+          </tr>
+        </ng-container>
+
+        <ng-container>
+          <tr class="table-content" [ngStyle]="{'font-size':'14px'}" *ngFor="let kits of testKits">
+            <td class="testNameInfo"> {{kits.testName}} </td>
+            <td class="stockInfo"> {{kits.availableStock}}</td>
+          </tr>
+        </ng-container>
+        <tr *ngIf="testKits.length==0">
+            <td colspan="2" [ngStyle]="{'border': 'none'}"> No Result </td> 
+        </tr>
+      </table>
+      <button mat-flat-button color="accent" (click)="updateKitDialog()" *ngIf="testKits.length!=0"> Update Stock</button>
+    </mat-card>
+  </div>
+</div>
+
+<p [ngStyle]="{'font-style': 'italic'}" *ngIf="kitsService.checkEmpty()==false"> Noted: This test centre does not have any test kit. Please add a new one. </p>
+
+<!-- <br>
+<br>
+<h2>Testing Table 2</h2>
+<table mat-table [dataSource]="testKits" >
+        <ng-container matColumnDef="testName">
+          <th class="testNameInfo"mat-header-cell *matHeaderCellDef [ngStyle]="{'width':'85%'}"> Test Name </th>
+          <td class="testNameInfo" mat-cell *matCellDef="let kit"> {{kit.testName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="availableStock">
+          <th class="stockInfo" mat-header-cell *matHeaderCellDef> Available Stock </th>
+          <td class="stockInfo" mat-cell *matCellDef="let kit" > {{ kit.availableStock }}  </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
+      </table> -->
+
