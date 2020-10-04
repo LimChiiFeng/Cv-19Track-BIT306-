@@ -10,7 +10,8 @@ import { KitInfoComponent } from './test_kit/kit-info/kit-info.component';
 import { UpdateKitComponent } from './test_kit/update-kit/update-kit.component';
 import { AddTesterComponent } from './tester_record/add-tester/add-tester.component';
 import { TestListComponent } from './recordNewTest/testlist/testlist.component';
-import { RecordNewTest } from './recordNewTest/recordnewtest.component'
+import { RecordNewTest } from './recordNewTest/recordnewtest.component';
+import { TesterInfoComponent } from './tester_record/tester-info/tester-info.component';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,13 +28,14 @@ import { MatTableModule } from "@angular/material/table";
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
-import { TesterInfoComponent } from './tester_record/tester-info/tester-info.component';
+import { MatSortModule } from '@angular/material/sort';
+
 
 
 
 const appRoutes: Routes = [
   {path: 'testCentre', component: CentreInfoComponent},
-  {path: 'recordTester', component: AddTesterComponent},
+  {path: 'recordTester', component: TesterInfoComponent},
   {path: 'testKit', component: KitInfoComponent},
   {path: 'newTest', component: RecordNewTest}
 ];
@@ -68,6 +70,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatSelectModule,
     MatIconModule,
+    MatSortModule,
     RouterModule.forRoot(
       appRoutes
     )

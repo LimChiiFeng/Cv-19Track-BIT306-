@@ -26,11 +26,11 @@
 
   <div class="testKitTable" *ngIf="kitsService.checkEmpty()==true">
     <mat-card class="mat-elevation-z4">
-      <table >
+      <table matSort (matSortChange)="sortKit($event)" >
         <ng-container>
           <tr class="table-header" >
-            <th class="testNameInfo" >Test Name</th>
-            <th class="stockInfo"> Available Stock </th>
+            <th class="testNameInfo" mat-sort-header="tname">Test Name</th>
+            <th class="stockInfo" mat-sort-header="stockNo"> Available Stock </th>
           </tr>
         </ng-container>
 
@@ -54,7 +54,7 @@
 <!-- <br>
 <br>
 <h2>Testing Table 2</h2>
-<table mat-table [dataSource]="testKits" >
+<table mat-table [dataSource]="kitsDataSource" >
         <ng-container matColumnDef="testName">
           <th class="testNameInfo"mat-header-cell *matHeaderCellDef [ngStyle]="{'width':'85%'}"> Test Name </th>
           <td class="testNameInfo" mat-cell *matCellDef="let kit"> {{kit.testName}} </td>

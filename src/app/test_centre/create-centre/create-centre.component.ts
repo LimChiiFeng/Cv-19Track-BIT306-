@@ -18,6 +18,6 @@ export class CreateCentreComponent{
     }
     this.centreService.createCentre(centreForm.value.centreName);
     this.centreRef.close();
-    // centreForm.reset();
+    centreForm.reset();
   }
 }

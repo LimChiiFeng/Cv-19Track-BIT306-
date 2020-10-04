@@ -16,7 +16,7 @@ mat-toolbar ul {
   list-style-type: none;
   margin:0;
   padding:0;
-  display:block;
+  display:inline-block;
 }
 
 mat-toolbar ul li {

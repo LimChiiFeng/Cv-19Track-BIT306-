@@ -1,6 +1,7 @@
 import { Component,Input,OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MatDialog } from "@angular/material/dialog";
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddKitComponent } from '../add-kit/add-kit.component';
 import { TestKit } from '../test_kit.model';
@@ -18,7 +19,8 @@ export class KitInfoComponent implements OnInit {
   searchStr:String;
   // searchName: String;
 
-  // tableColumns: string[] = ['testName','availableStock'];
+  tableColumns: string[] = ['testName','availableStock'];
+  kitsDataSource: MatTableDataSource<any>;
   // columnsToDisplay: string[] = this.tableColumns.slice();
 
   kitsData = new MatTableDataSource(this.testKits);
@@ -59,6 +61,28 @@ export class KitInfoComponent implements OnInit {
     }
     
 }
+
+    sortKit(sort:MatSort){
+        const kit_data = this.kitsService.getTestKit().slice();
+        if(!sort.active || sort.direction === ''){
+            this.testKits = kit_data;
+            return;
+        }
+
+        this.testKits = kit_data.sort((a,b) => {
+            const isAsc = sort.direction === 'asc';
+            switch (sort.active) {
+                case 'tname':
+                    return compare(a.testName,b.testName,isAsc);
+                
+                case 'stockNo':
+                    return compare(a.availableStock,b.availableStock,isAsc);
+                default:
+                    return 0;
+            }
+        })
+    }
+
   // searchKit(event: Event){
   //   const filterValue = (event.target as HTMLInputElement).value;
     // this.testKits.filter = filterValue.trim().toLowerCase();
@@ -72,9 +96,20 @@ export class KitInfoComponent implements OnInit {
 
   ngOnInit(){
     this.testKits= this.kitsService.getTestKit();
-  }
 
+    // this.kitsDataSource = new MatTableDataSource(this.testKits);
+    // console.log('kitsDataSource:' );
+    // console.log(this.kitsDataSource);
+    // console.log('kitsData:' );
+    // console.log(this.kitsData);
+    // console.log('testKits:' );
+    // console.log(this.testKits);
+    // console.log('kitsService:' );
+    // console.log(this.kitsService.getTestKit());
+    // this.kitsDataSource=new MatTableDataSource<>;
+  } 
+}
 
-
-  
+function compare(a: String | number, b: String | number, isAsc:boolean){
+    return (a < b ? -1: 1) * (isAsc ? 1 : -1);
 }

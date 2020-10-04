@@ -1,0 +1,31 @@
+mat-card{
+    display: grid;
+}
+
+mat-card-content{
+    width:auto;
+    margin: auto 1rem;
+}
+
+mat-form-field{
+    width:100%;
+    margin:auto;
+    /* padding-top:1rem; */
+}
+
+.recordNewTester-header h2{
+    text-align: center;
+    font-size:24px
+}
+
+.recordNewTester-header button{
+    float:right;
+    margin:-4rem -0.5rem auto auto;
+    font-size: 24px;
+}
+
+form button{
+    float:right;
+    width:110px;
+    display:block;
+}
