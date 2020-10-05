@@ -3,11 +3,13 @@
   <mat-expansion-panel *ngFor="let test of testlists, let i = index">
     <p *ngIf="testlists.length>0 && testlists.length<10">Test Index: T00{{i+1}}</p>
     <mat-expansion-panel-header>
-      {{test.testname}}
-      <span class="actionbutton">
-      <button mat-icon-button><mat-icon>launch</mat-icon></button>
-      <button mat-icon-button><mat-icon>delete_outline</mat-icon></button>
-    </span>
+      <span class="mat-content">
+        {{test.testname}}
+        <span class="actionbutton">
+          <button mat-icon-button><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button><mat-icon>delete_outline</mat-icon></button>
+        </span>
+  </span>
     </mat-expansion-panel-header>
     <p> {{test.testresult}}</p>
     <p> {{test.patienttype}}</p>

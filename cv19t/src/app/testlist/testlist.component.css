@@ -15,16 +15,16 @@ mat-expansion-panel{
 .addbtnfloatright{
   float:right;
 }
+.mat-content{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+}
 
 mat-expansion-panel-header button{
   display:none;
 }
 
 mat-expansion-panel-header:hover button{
-  display:flex;
-  justify-content:flex-end;
-}
-
-.actionbutton{
-  float:right;
+  display:inline-block;
 }
