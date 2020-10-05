@@ -21,12 +21,7 @@
                     <input type="text" matInput name="name" ngModel #name="ngModel" required>
                     <mat-error *ngIf="name.invalid"> Please enter a name. </mat-error>
                 </mat-form-field>
-                <mat-form-field>
-                    <mat-label> Email </mat-label>
-                    <input type="email" matInput name="email" ngModel #email="ngModel" required>
-                    <mat-error *ngIf="email.invalid"> Please enter a email. </mat-error>
-                </mat-form-field>
-                <button mat-raised-button type="submit" color="accent"> Register </button>
+                <button mat-flat-button type="submit" color="accent"> Register </button>
             </form>
         </mat-card-content>
         

@@ -9,41 +9,40 @@
             <span> Search </span>
           </mat-placeholder>
         <input matInput type="text" name="searchName" id="searchName" [(ngModel)]="searchStr" (keyup)="search()">
-        <!-- <input matInput type="text" name="searchName" id="searchName" ngModel #searchName="ngModel" (keyup)="search(searchName)"> -->
-        <!-- (keyup)="searchKit($event)" -->
-        <!-- [(ngModel)]="searchName" (input)="searchKit() -->
       </mat-form-field>
     </mat-action-row>
   </div>
 
-  <div>
-    
-  </div>
-
-  <!-- <p>{{searchName}}</p> -->
-  <!-- <p> {{ searchName.value }}</p> -->
-  <!-- <p> {{searchStrg}} </p> -->
-
-  <div class="testKitTable" *ngIf="kitsService.checkEmpty()==true">
+  <div class="testKitInfo" *ngIf="kitsService.checkEmpty()==true">
     <mat-card class="mat-elevation-z4">
-      <table matSort (matSortChange)="sortKit($event)" >
-        <ng-container>
-          <tr class="table-header" >
-            <th class="testNameInfo" mat-sort-header="tname">Test Name</th>
-            <th class="stockInfo" mat-sort-header="stockNo"> Available Stock </th>
-          </tr>
-        </ng-container>
-
-        <ng-container>
-          <tr class="table-content" [ngStyle]="{'font-size':'14px'}" *ngFor="let kits of testKits">
-            <td class="testNameInfo"> {{kits.testName}} </td>
-            <td class="stockInfo"> {{kits.availableStock}}</td>
-          </tr>
-        </ng-container>
-        <tr *ngIf="testKits.length==0">
-            <td colspan="2" [ngStyle]="{'border': 'none'}"> No Result </td> 
-        </tr>
-      </table>
+        
+            
+            <table matSort (matSortChange)="sortKit($event)" >
+                <thead>
+                    <ng-container>
+                        <tr class="table-header" >
+                          <th class="testNameInfo" mat-sort-header="tname">Test Name</th>
+                          <th class="stockInfo" mat-sort-header="stockNo"> Available Stock </th>
+                        </tr>
+                      </ng-container>
+                </thead>
+            </table>
+            <div class="testKitInfo-table-data">
+            <table>
+                <tbody>
+                    <ng-container>
+                        <tr class="table-content" [ngStyle]="{'font-size':'14px'}" *ngFor="let kits of testKits">
+                          <td class="testNameInfo"> {{kits.testName}} </td>
+                          <td class="stockInfo"> {{kits.availableStock}}</td>
+                        </tr>
+                      </ng-container>
+                </tbody>        
+                <tr *ngIf="testKits.length==0">
+                    <td colspan="2" [ngStyle]="{'border': 'none'}"> No Result </td> 
+                </tr>
+              </table>
+        </div>
+      
       <button mat-flat-button color="accent" (click)="updateKitDialog()" *ngIf="testKits.length!=0"> Update Stock</button>
     </mat-card>
   </div>

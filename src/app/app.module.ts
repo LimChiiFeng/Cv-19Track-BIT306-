@@ -29,6 +29,8 @@ import { MatTableModule } from "@angular/material/table";
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -71,9 +73,12 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatIconModule,
     MatSortModule,
+    MatPaginatorModule,
+    MatSnackBarModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTesterComponent } from '../add-tester/add-tester.component';
 import { TestersService } from "../tester.service";
 import { Tester } from '../tester.model';
 import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'tester-info',
@@ -12,25 +14,43 @@ import { MatSort } from '@angular/material/sort';
 })
 export class TesterInfoComponent implements OnInit{
     testers: Tester[] = [];
+    testersData: MatTableDataSource<Tester>;
+
+    @ViewChild(MatSort) sort:MatSort;
+    @ViewChild(MatPaginator) paginator:MatPaginator;
+    // testersData:MatTableDataSource<Tester> = new MatTableDataSource<Tester>(this.testers);
 
     searchStr:String;
-    tableColumns:String[] =['name','username'];
+    tableColumns:String[] =['name','username','password'];
     
     // @ViewChild(MatSort) sort:MatSort;
 
     constructor(public recordDialog:MatDialog,public testersService:TestersService) { }    
 
+    ngAfterViewInit(): void {
+        //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+        //Add 'implements AfterViewInit' to the class.
+        this.testersData.sort = this.sort;
+        this.testersData.paginator = this.paginator;
+    }
+
     ngOnInit(){
        this.testers = this.testersService.getTesters();
-       this.testers.sort;
+       this.testersData = new MatTableDataSource(this.testers);
+    //    this.testers.sort;
        console.log(this.testers);
+       console.log(this.testersData)
     }
 
     recDialog(){
-        this.recordDialog.open(AddTesterComponent,{
+        const dialogRef = this.recordDialog.open(AddTesterComponent,{
             width:"40%",
             autoFocus:false
         });
+
+        dialogRef.afterClosed().subscribe(res=>{
+            this.testersData = new MatTableDataSource(this.testers);
+        })
     }
 
     searchTester(){
@@ -61,6 +81,15 @@ export class TesterInfoComponent implements OnInit{
                     return 0;
             }
         })
+    }
+
+    searchData(e:Event){
+        const result = (e.target as HTMLInputElement).value;
+        this.testersData.filter = result.trim().toLocaleLowerCase();
+        if(this.testersData.paginator){
+            this.testersData.paginator.firstPage();
+        }
+
     }
 
     // deleteTester(username:String, name:String){

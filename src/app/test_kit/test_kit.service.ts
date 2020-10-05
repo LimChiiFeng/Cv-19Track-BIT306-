@@ -5,14 +5,14 @@ import { Injectable } from '@angular/core';
 
 export class TestKitsService {
   private testKit: TestKit[] = [
-    {kitID: 2, testName:'Test Kit 1', availableStock: 10, centreID: 1},
-    {kitID: 5, testName:'Test Kit 3', availableStock: 2, centreID: 1},
-    {kitID: 6, testName:'Test Kit 2', availableStock: 25, centreID: 1},
-    {kitID: 7, testName:'Test Kit 6', availableStock: 6, centreID: 1},
-    {kitID: 9, testName:'Test Kit 8', availableStock: 2, centreID: 1},
-    {kitID: 10, testName:'Test Kit 4', availableStock: 50, centreID: 1},
-    {kitID: 11, testName:'Test Kit 5', availableStock: 14, centreID: 1},
-    {kitID: 16, testName:'Test Kit 7', availableStock: 9, centreID: 1},
+    {kitID: 2, testName:'Rapid Test Kit', availableStock: 10, centreID: 1},
+    {kitID: 5, testName:'RTK Test for Antigen Detection', availableStock: 2, centreID: 1},
+    {kitID: 6, testName:'Rapid Diagnostic Test', availableStock: 25, centreID: 2},
+    {kitID: 7, testName:'PCR Test', availableStock: 6, centreID: 2},
+    {kitID: 9, testName:'Neutralizing vs. Binding Antibodies', availableStock: 2, centreID: 1},
+    {kitID: 10, testName:'Enzyme-linked Immunosorbent Assay', availableStock: 50, centreID: 2},
+    {kitID: 11, testName:'Neutralization Assay', availableStock: 14, centreID: 1},
+    {kitID: 16, testName:'Chemiluminescent Immunoassay', availableStock: 9, centreID: 1},
   ];
 
   //

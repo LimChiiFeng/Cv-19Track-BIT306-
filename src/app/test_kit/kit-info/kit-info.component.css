@@ -13,7 +13,7 @@ mat-action-row button{
 
 mat-form-field{
   width:85%;
-  margin-left: 2rem;
+  margin-left: 1.5rem;
   /* background-color: green; */
 }
 
@@ -26,26 +26,46 @@ mat-card{
 mat-card button{
   float:right;
   margin: 0.5rem 1rem auto auto;
-  top:-0.3rem;
 }
 
 table{
   width:100%;
-  padding:1rem;
+  /* padding:1rem; */
+  padding: 0 1rem 0.5rem 1rem;
   margin:auto;
   border-spacing:0;
 }
 
 table th, td{
-  border-bottom: silver 1px solid ;
+  /* border-bottom: silver 1px solid ; */
   /* background-color:green; */
   padding: 1.4rem;
   
 }
 
+table td{
+    border-bottom: silver 1px solid ;
+}
+
+.testKitInfo-table-data{
+    display:block;
+    height: 320px;
+    max-height: 100%;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+/* thead>tr>th{
+    float:left;
+} */
+
+table tr{
+    width:100%;
+}
 
 .table-content:hover {
     background-color: #f5f5f5;
+    
   }
 
 .testNameInfo{
