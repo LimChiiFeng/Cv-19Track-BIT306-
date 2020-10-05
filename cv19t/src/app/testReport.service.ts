@@ -10,8 +10,8 @@ export class TestReportService{
     return this.testlist;
   }
 
-  addTest(testname:string, testresult:string){
-    const test: Test = {testname:testname, testresult:testresult};
+  addTest(testname:string, testresult:string, patienttype){
+    const test: Test = {testname:testname, testresult:testresult, patienttype};
     this.testlist.push(test);
   }
 }

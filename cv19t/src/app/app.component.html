@@ -1,18 +1,21 @@
-<ejs-sidebar id="default-sidebar" #sidebar (created)="onCreated($event)" [ngStyle]="{'visibility':'hidden'}" [width]="width" [showBackdrop]="showBackdrop" [closeOnDocumentClick]="closeOnDocumentClick">
+<ejs-sidebar id="default-sidebar" #sidebar (created)="onCreated($event)"  [showBackdrop]="true" [width]="width"  [closeOnDocumentClick]="closeOnDocumentClick">
   <div class="title">Side bar content</div>
   <div class="center-align">
     <button ejs-button id="close" (click)="closeClick()">Close Sidebar</button>
   </div>
 </ejs-sidebar>
 <div>
+
 <h2>Lim Chii Feng's Covid 19 Tracker</h2>
 <app-header></app-header>
 <main>
  <div class="center-align">
   <button ejs-button id="toggle" (click)="toggleClick()">Show sideMenu</button>
 </div>
-<a mat-button color="primary" routerLink="/recordnewtest">Add New Test</a>
+<!--a mat-button color="primary" routerLink="/recordnewtest">Add New Test</a-->
  <a mat-button color="accent" routerLink="/reportlist">Test Report List</a>
+ <router-outlet></router-outlet>
 </main>
 </div>
-<router-outlet></router-outlet>
+
+

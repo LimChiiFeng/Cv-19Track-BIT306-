@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output} from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Test } from "../testReport.model";
 import { TestReportService } from '../testReport.service';
 
@@ -12,12 +13,14 @@ import { TestReportService } from '../testReport.service';
 export class RecordNewTest {
   TestName='';
   TestResult='';
-  constructor(public testreportservice:TestReportService){}
+  constructor(public testreportservice:TestReportService,
+    private dialogRef: MatDialogRef<RecordNewTest>){}
 
   onAddTest(form: NgForm){
     if (form.invalid){
       return;
     }
-    this.testreportservice.addTest(form.value.testname,form.value.testresult);
+    this.testreportservice.addTest(form.value.testname,form.value.testresult,form.value.patienttype);
+    this.dialogRef.close();
   }
 }

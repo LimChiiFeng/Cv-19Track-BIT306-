@@ -1,8 +1,7 @@
 mat-form-field{
   width:100%;
 }
-
-.mat-accent{
+.addbtncolor{
   background-image:linear-gradient(to left, rgb(74, 155, 51), rgb(14,247,13) 91%, rgb(255,255,255) 99%),
   linear-gradient(to right, rgb(74, 155, 51) 0%, rgb(14,247,13) 51%, rgb(255,255,255) );
   background-position: -100% 0%, 0% 0%;
@@ -11,10 +10,9 @@ mat-form-field{
   color:#ffff;
 }
 
-.mat-accent:hover{
+.addbtncolor:hover{
   background-position: 0% 0%, 300% 0%;
   color:rgb(155,12,133);
-
 }
 
 

@@ -16,7 +16,7 @@ public type: string = 'Push';
 public width: string ='280px';
 public closeOnDocumentClick: boolean = true;
 public onCreated(args: any) {
-  this.sidebar.element.style.visibility = '';
+  this.sidebar.hide();
 }
 closeClick(): void {
   this.sidebar.hide();

@@ -17,3 +17,27 @@
 .addtestbtn:hover{
   background-position:11% 0%, -100% 0;
 }
+
+.addbtncolor{
+  background-image:linear-gradient(to left, rgb(74, 155, 51), rgb(14,247,13) 91%, rgb(255,255,255) 99%),
+  linear-gradient(to right, rgb(74, 155, 51) 0%, rgb(14,247,13) 51%, rgb(255,255,255) );
+  background-position: -100% 0%, 0% 0%;
+  background-size:200% 100%;
+  transition:background 0.5s;
+  color:#ffff;
+}
+
+.addbtncolor:hover{
+  background-position: 0% 0%, 300% 0%;
+  color:rgb(155,12,133);
+}
+.overlay{
+  content: "$";
+background: rgba(0,0,0,0.65);
+position: fixed;
+top: 0;
+left:0;
+bottom: 0;
+right: 0;
+height:100%;
+}

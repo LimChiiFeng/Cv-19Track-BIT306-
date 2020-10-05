@@ -16,5 +16,6 @@ export class TestListComponent implements OnInit{
 
   ngOnInit(){
     this.testlists=this.testreportservice.getTest();
+
   }
 }

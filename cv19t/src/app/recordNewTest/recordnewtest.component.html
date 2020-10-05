@@ -1,16 +1,42 @@
-<h2>New Test</h2>
+<h2 mat-dialog-title>Add new test</h2>
+<form (submit)="onAddTest(testReport)" #testReport="ngForm">
+<mat-dialog-content>
 <mat-card>
-  <form (submit)="onAddTest(testReport)" #testReport="ngForm">
+
   <mat-form-field>
-    <input matInput type="text" placeholder="Test Name"  name="testname" ngModel required #testname="ngModel">
+    <mat-label><i class="fas fa-address-card"></i> *Test Name</mat-label>
+    <input matInput type="text" placeholder="e.g. Test 1"  name="testname" ngModel required #testname="ngModel">
     <mat-error *ngIf="testname.invalid">This test must have a name for it</mat-error>
   </mat-form-field>
-<mat-form-field>
-<textarea matInput rows="6" name="testresult" ngModel #testresult="ngModel" required></textarea>
-<mat-error *ngIf="testresult.invalid">This test have no result?</mat-error>
+  <mat-form-field>
+  <mat-label><i class="fas fa-user-injured"></i> *Patient Type</mat-label>
+  <mat-select #patienttype="ngModel" ngModel required name="patienttype">
+    <mat-option>--</mat-option>
+    <mat-optgroup label="Negative">
+      <mat-option value="returnee">Returnee</mat-option>
+      <mat-option value="suspected">Suspected</mat-option>
+    </mat-optgroup>
+    <mat-optgroup label="Yellow Warning">
+      <mat-option value="quarantined">Quarantined</mat-option>
+      <mat-option value="closeContacted">Close Contact</mat-option>
+    </mat-optgroup>
+    <mat-optgroup label="Fatal(Think wisely before choosing this)">
+      <mat-option value="Infected">Infected</mat-option>
+    </mat-optgroup>
+  </mat-select>
+  <mat-error *ngIf="patienttype.invalid">Patient Type should not be blank</mat-error>
 </mat-form-field>
+<mat-form-field>
+  <mat-label>
+    <mat-icon>sick</mat-icon>
+     *Symptom <i>(in detail)</i>
+  </mat-label>
+  <textarea matInput rows="6" name="testresult" ngModel #testresult="ngModel" required></textarea>
+  <mat-error *ngIf="testresult.invalid">This test have no result?</mat-error>
+  </mat-form-field>
+<button mat-flat-button [ngClass] = "'addbtncolor'" type="submit">Register</button>
 
-<br>
-<button mat-raised-button color="accent" type="submit">Add Test Result</button>
-</form>
 </mat-card>
+</mat-dialog-content>
+</form>
+

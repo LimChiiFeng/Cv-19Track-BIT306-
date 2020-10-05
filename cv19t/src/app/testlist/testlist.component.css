@@ -8,3 +8,23 @@
   font-family:Roboto,"Helvetica Neue",sans-serif;
 }
 
+mat-expansion-panel{
+  clear:both;
+}
+
+.addbtnfloatright{
+  float:right;
+}
+
+mat-expansion-panel-header button{
+  display:none;
+}
+
+mat-expansion-panel-header:hover button{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.actionbutton{
+  float:right;
+}

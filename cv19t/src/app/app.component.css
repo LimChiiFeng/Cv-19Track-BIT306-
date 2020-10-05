@@ -6,6 +6,17 @@ main{
     width:80%;
   }
 
+.overlay{
+  content: "$";
+background: rgba(0,0,0,0.65);
+position: fixed;
+top: 0;
+left:0;
+bottom: 0;
+right: 0;
+height:100%;
+}
+
   .center-align {
     text-align: center;
     padding: 20px;
@@ -52,7 +63,10 @@ body {
 }
 
 #default-sidebar {
-    background-image:linear-gradient(rgb(44,15,255),rgb(4, 96, 235),#fff);
+    /**background-image:linear-gradient(rgb(44,15,255),rgb(4, 96, 235),#fff);**/
+    background-image:url(../assets/img/mainheroine.jpg);
+    background-repeat:no repeat;
+    background-position:center center;
     color: #ffffff;
 }
 
