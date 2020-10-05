@@ -1,0 +1,30 @@
+.addtestbtn{
+  background-image:linear-gradient(to right, #fff, #1995c8 11%, #00bbce);
+  background-position:-100% 0%;
+  background-size: 200% 100%;
+  transition:background 0.5s;
+  border-radius: 5px;
+  border:0;
+  color: #fff;
+  font-size:36px;
+}
+
+.addtestbtn:hover{
+  background-position:100% 0%;
+}
+
+.addtestbtn img{
+  height:10vh;
+}
+
+
+.addtestbtn img.addbtnclr{
+  display:none;
+}
+.addtestbtn:hover img{
+  display:none;
+}
+
+.addtestbtn:hover img.addbtnclr{
+  display:inline-block;
+}

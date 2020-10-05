@@ -17,9 +17,11 @@
 </mat-accordion>
 
 <div [ngClass]="'notesterContainer'" *ngIf="testlists.length ==0 ">
-  <img src="../../assets/img/noTestResultHvBg-removebg-preview.png">
+  <img src="../../assets/img/no-data.png" alt="No Test Result.png">
+  <br>
+  <br>
   <h1> Oh,ooh</h1>
-  <p>There is no test report saved here yet. Please click the very obvious appearing "Add New Test" button to create a new test report</p>
+  <p>There is no test report saved here yet. Please click the button below to create a new test report</p>
   <courseform></courseform>
 </div>
 

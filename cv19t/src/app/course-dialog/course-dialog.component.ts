@@ -4,7 +4,8 @@ import { RecordNewTest } from '../recordNewTest/recordnewtest.component';
 
 @Component({
   selector:'courseform',
-  templateUrl:'course-dialog.component.html'
+  templateUrl:'course-dialog.component.html',
+  styleUrls:['./course-dialog.component.css']
 })
 
 export class CourseDialogComponent {
