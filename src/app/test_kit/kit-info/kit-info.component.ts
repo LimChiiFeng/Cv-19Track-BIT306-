@@ -16,11 +16,13 @@ import { UpdateKitComponent } from '../update-kit/update-kit.component';
 export class KitInfoComponent implements OnInit {
   constructor(public kitDialog: MatDialog, public kitsService: TestKitsService){}
   testKits: TestKit[] = [];
+  testKitByCentre: TestKit[] = [];
   searchStr:String;
+//   testStr:string = "S02342515";
   // searchName: String;
 
-  tableColumns: string[] = ['testName','availableStock'];
-  kitsDataSource: MatTableDataSource<any>;
+//   tableColumns: string[] = ['testName','availableStock'];
+//   kitsDataSource: MatTableDataSource<any>;
   // columnsToDisplay: string[] = this.tableColumns.slice();
 
   kitsData = new MatTableDataSource(this.testKits);
@@ -53,7 +55,8 @@ export class KitInfoComponent implements OnInit {
     } else{
         // console.log('If the string not NULL');
         // console.log(this.testKits)
-      this.testKits = this.testKits.filter(res=>{
+        
+      this.testKits = this.kitsService.getTestKit().filter(res=>{
         return res.testName.toLocaleLowerCase().match(this.searchStr.toLocaleLowerCase());
     })
     //   console.log('After searching');
@@ -96,6 +99,13 @@ export class KitInfoComponent implements OnInit {
 
   ngOnInit(){
     this.testKits= this.kitsService.getTestKit();
+    this.testKitByCentre = this.kitsService.getTestKitByCentre(1);
+
+    // var strNum:string = this.testStr.substr(1);
+    // var num:number = parseInt(strNum);
+    // console.log(strNum)
+    // console.log(num)
+    // console.log(typeof(num))
 
     // this.kitsDataSource = new MatTableDataSource(this.testKits);
     // console.log('kitsDataSource:' );

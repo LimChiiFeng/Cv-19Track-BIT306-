@@ -1,0 +1,32 @@
+<div class="mangerReport">
+    <div class="searchBar_report">
+        <mat-form-field>
+            <mat-label> <mat-icon> search</mat-icon> Search </mat-label>
+            <input matInput name="searchReport" (keyup)="searchReport()" [(ngModel)]="searchStr">
+        </mat-form-field>
+    </div>
+    <div class="testCentre_report">
+        <mat-card>
+            <div class="report-data">
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let report of testers">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{report.name}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            This is report status
+                        </mat-panel-description>
+                          
+                       
+                      </mat-expansion-panel-header>
+                      <p>Report Completed: {{report.username}}</p>
+                      <p>Password: {{report.password}}</p>
+                    </mat-expansion-panel>
+                    
+                  </mat-accordion>
+            </div>              
+        </mat-card>
+    </div>
+    
+</div>

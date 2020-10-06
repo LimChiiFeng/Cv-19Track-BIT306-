@@ -12,6 +12,7 @@ import { AddTesterComponent } from './tester_record/add-tester/add-tester.compon
 import { TestListComponent } from './recordNewTest/testlist/testlist.component';
 import { RecordNewTest } from './recordNewTest/recordnewtest.component';
 import { TesterInfoComponent } from './tester_record/tester-info/tester-info.component';
+import { ManagerReportComponent } from './test_report/manager-report/manager-report.component';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
   {path: 'testCentre', component: CentreInfoComponent},
   {path: 'recordTester', component: TesterInfoComponent},
   {path: 'testKit', component: KitInfoComponent},
-  {path: 'newTest', component: RecordNewTest}
+  {path: 'newTest', component: RecordNewTest},
+  {path: 'managerReport', component: ManagerReportComponent}
 ];
 
 @NgModule({
@@ -56,7 +58,8 @@ const appRoutes: Routes = [
     AddTesterComponent,
     TesterInfoComponent,
     RecordNewTest,
-    TestListComponent
+    TestListComponent,
+    ManagerReportComponent
   ],
   imports: [
     BrowserModule,

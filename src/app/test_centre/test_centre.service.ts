@@ -16,12 +16,18 @@ export class TestCentreService {
   }
 
   createCentre(centreName:String){
-    var centreID;
+    var centreID: number = 0;
 
     if(this.getCentre().length==0){
       centreID = this.getCentre().length + 1;
     } else {
-      centreID = this.getCentre()[this.getCentre().length-1].centreID + 1;
+        this.getCentre().forEach(res=>{
+            if(centreID < res.centreID){
+                centreID = res.centreID
+            }
+            centreID++;
+        })
+    //   centreID = this.getCentre()[this.getCentre().length-1].centreID + 1;
     }
 
     const centre: TestCentre = {centreID: centreID, centreName:centreName}

@@ -1,10 +1,10 @@
-mat-action-row{
+.kitActionGroup{
   margin-top: 0.5rem;
   width:100%;
   display: inline-flex;
 }
 
-mat-action-row button{
+.kitActionGroup button{
   margin: 0.5rem 0.5rem auto 0;
   font-size:18px;
   height: max-content;

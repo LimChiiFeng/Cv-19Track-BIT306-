@@ -1,6 +1,5 @@
 <div class="testerInfo">
     <div class="testerInfo-header">
-        <mat-action-row>
             <button mat-raised-button color="primary" name="addTester" (click)="recDialog()"> + New </button>
             <mat-form-field>
                 <mat-placeholder>
@@ -10,7 +9,6 @@
             <!-- <input matInput type="text" name="searchName" id="searchName" [(ngModel)]="searchStr" (keyup)="searchTester()"> -->
             <input matInput type="text" name="searchName" id="searchName" #searchName (keyup)="searchData($event)">
             </mat-form-field>
-        </mat-action-row>
     </div>
 
     <div class="testerInfo-list">
@@ -54,7 +52,7 @@
 
             </table>
 
-            <mat-paginator [pageSize]="5" showFirstLastButtons> </mat-paginator>
+            <mat-paginator *ngIf="testersService.getTesters().length>5" [pageSize]="5" showFirstLastButtons> </mat-paginator>
         </mat-card>
 
         <div class="noTester" *ngIf="testers.length==0">

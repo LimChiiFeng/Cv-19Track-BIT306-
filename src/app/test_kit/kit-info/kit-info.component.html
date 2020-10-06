@@ -1,16 +1,13 @@
 <div class="testKit">
   <div class="kitActionGroup">
-    <mat-action-row>
+
       <button mat-raised-button color="primary" (click)="addKitDialog()"> + Add </button>
       
       <mat-form-field>
-          <mat-placeholder>
-            <mat-icon> search </mat-icon>
-            <span> Search </span>
-          </mat-placeholder>
+          <mat-label> <mat-icon>search</mat-icon> Search </mat-label>
         <input matInput type="text" name="searchName" id="searchName" [(ngModel)]="searchStr" (keyup)="search()">
       </mat-form-field>
-    </mat-action-row>
+
   </div>
 
   <div class="testKitInfo" *ngIf="kitsService.checkEmpty()==true">
@@ -31,7 +28,7 @@
             <table>
                 <tbody>
                     <ng-container>
-                        <tr class="table-content" [ngStyle]="{'font-size':'14px'}" *ngFor="let kits of testKits">
+                        <tr class="table-content" [ngStyle]="{'font-size':'14px'}" *ngFor="let kits of testKitByCentre">
                           <td class="testNameInfo"> {{kits.testName}} </td>
                           <td class="stockInfo"> {{kits.availableStock}}</td>
                         </tr>

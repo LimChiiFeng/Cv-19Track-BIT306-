@@ -1,19 +1,52 @@
 <logo></logo>
 <main>
-    <mat-toolbar>
-      <ul>
-        <li><a routerLink="/testCentre" routerLinkActive="active">Test Centre</a> </li>
-        <li *ngIf="centre.length>0"><a routerLink="/recordTester" routerLinkActive="active">Tester</a></li>
-        <li *ngIf="centre.length>0"><a routerLink="/testKit" routerLinkActive="active">Test Kit</a></li>
-        <li><a routerLink="/newTest" routerLinkActive="active">New Test</a></li>
-      </ul>
-  </mat-toolbar>
+    <!-- For Manager user -->
+    <div class="managerPage">
+        <mat-toolbar>
+            <ul>
+              <li><a routerLink="/testCentre" routerLinkActive="active">Test Centre</a> </li>
+              <li *ngIf="centre.length>0"><a routerLink="/recordTester" routerLinkActive="active">Tester</a></li>
+              <li *ngIf="centre.length>0"><a routerLink="/testKit" routerLinkActive="active">Test Kit</a></li>
+              <li *ngIf="centre.length>0"><a routerLink="/managerReport" routerLinkActive="active"> Report </a></li>
+            </ul>
+        </mat-toolbar>
+    </div>
+    
+    <!-- For Tester user -->
+    <!-- <div class="testerPage">
+        <mat-toolbar>
+            <ul>
+                <li><a routerLink="/newTest" routerLinkActive="active">New Test</a></li>
+            </ul>
+        </mat-toolbar>
+    </div> -->
+
+    <!-- For Patient user -->
+    <!-- <div class="patientPage">
+        <mat-toolbar>
+            <ul>
+              <li> <a routerLink=""> View History </a> </li>
+            </ul>
+        </mat-toolbar>
+    </div> -->
+
+
+    <!-- For Officer user -->
+    <!-- <div class="OfficerPage">
+        <mat-toolbar>
+            <ul>
+              
+            </ul>
+        </mat-toolbar>
+    </div> -->
+
   <router-outlet></router-outlet>
   <br>
   <hr>
   <br>
   
   <!-- Testing Area -->
+
   <!-- <testlist></testlist> -->
   <!-- <create-centre></create-centre> -->
   <!-- <centre-info></centre-info> -->
@@ -21,3 +54,5 @@
   <!-- <update-kit></update-kit> -->
   <!-- <add-tester></add-tester> -->
 </main>
+
+<!-- 这个你就直接comment掉我的part 然后丢你的router下去 -->
