@@ -20,7 +20,8 @@
     </div>
   </div>
 
-  
+  <p [ngStyle]="{'font-style': 'italic'}" *ngIf="centreService.getCentre().length<=0"> Your Test Centre have been approved, please register the centre name. </p>
+
 </div>
 
 

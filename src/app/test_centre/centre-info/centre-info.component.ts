@@ -26,11 +26,11 @@ export class CentreInfoComponent implements OnInit {
     this.testerNum = this.testerService.getTesters().length;
     this.kitNum = this.kitService.getTestKit().length;
     
-    if(this.centre.length==0){
-        this.snackBar.open('Test Centre have been approved, please register the centre name.','Close',{
-            duration: 2500,
-        });
-    }
+    // if(this.centre.length==0){
+    //     this.snackBar.open('Test Centre have been approved, please register the centre name.','Close',{
+    //         duration: 2500,
+    //     });
+    // }
     
   }
 

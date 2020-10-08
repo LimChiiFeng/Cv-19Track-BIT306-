@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class TestCentreService {
   private centre: TestCentre[] = [
     // {centreID: 1, centreName:'Test Centre 1'},
-    {centreID: 4, centreName:'Chung Hwa Test Centre'},
+    // {centreID: 4, centreName:'Chung Hwa Test Centre'},
     // {centreID: 7, centreName:'Test Centre 3'},
     // {centreID: 10, centreName:'Test Centre 4'}
    ];

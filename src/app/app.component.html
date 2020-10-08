@@ -1,7 +1,25 @@
 <logo></logo>
 <main>
+
+    <mat-card>
+        <form name="userForm" ngForm #userForm="ngForm" (submit)="login(userForm)">
+            <mat-form-field>
+                <mat-label> Username </mat-label>
+                <input matInput type="text" name="username" ngModel #username="ngModel" required>
+                <mat-error *ngIf="username.invalid"> Please enter username </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label> Password </mat-label>
+                <input matInput type="password" name="password" ngModel #password="ngModel" required>
+                <mat-error *ngIf="password.invalid"> Please enter password </mat-error>
+            </mat-form-field>
+            <button type="submit" mat-raised-button> Login  </button>
+        </form>
+    </mat-card>
+
+
     <!-- For Manager user -->
-    <div class="managerPage">
+    <!-- <div class="managerPage">
         <mat-toolbar>
             <ul>
               <li><a routerLink="/testCentre" routerLinkActive="active">Test Centre</a> </li>
@@ -10,7 +28,7 @@
               <li *ngIf="centre.length>0"><a routerLink="/managerReport" routerLinkActive="active"> Report </a></li>
             </ul>
         </mat-toolbar>
-    </div>
+    </div> -->
     
     <!-- For Tester user -->
     <!-- <div class="testerPage">
@@ -41,9 +59,9 @@
     </div> -->
 
   <router-outlet></router-outlet>
-  <br>
+  <!-- <br>
   <hr>
-  <br>
+  <br> -->
   
   <!-- Testing Area -->
 

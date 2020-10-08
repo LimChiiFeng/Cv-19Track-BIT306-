@@ -7,11 +7,11 @@ export class TestKitsService {
   private testKit: TestKit[] = [
     // {kitID: 2, testName:'Rapid Test Kit', availableStock: 10, centreID: 1},
     // {kitID: 5, testName:'RTK Test for Antigen Detection', availableStock: 2, centreID: 1},
-    {kitID: 6, testName:'Rapid Diagnostic Test', availableStock: 25, centreID: 2},
-    {kitID: 7, testName:'PCR Test', availableStock: 6, centreID: 2},
-    {kitID: 9, testName:'Neutralizing vs. Binding Antibodies', availableStock: 2, centreID: 1},
-    {kitID: 20, testName:'Enzyme-linked Immunosorbent Assay', availableStock: 50, centreID: 2},
-    {kitID: 11, testName:'Neutralization Assay', availableStock: 14, centreID: 1},
+    // {kitID: 6, testName:'Rapid Diagnostic Test', availableStock: 25, centreID: 2},
+    // {kitID: 7, testName:'PCR Test', availableStock: 6, centreID: 2},
+    // {kitID: 9, testName:'Neutralizing vs. Binding Antibodies', availableStock: 2, centreID: 1},
+    // {kitID: 20, testName:'Enzyme-linked Immunosorbent Assay', availableStock: 50, centreID: 2},
+    // {kitID: 11, testName:'Neutralization Assay', availableStock: 14, centreID: 1},
     // {kitID: 16, testName:'Chemiluminescent Immunoassay', availableStock: 9, centreID: 1},
   ];
 
