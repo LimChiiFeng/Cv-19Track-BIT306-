@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Add new test</h2>
+<form (submit)="onUpdateTest(testReport)" #testReport="ngForm">
+<mat-dialog-content>
+<mat-card>
+<mat-form-field>
+  <mat-label>TestID: </mat-label>
+  <input matInput type="text" value="{{psname.psdata.TestID}}" disabled>
+</mat-form-field>
+<mat-form-field>
+<mat-label>
+  <mat-icon>sick</mat-icon>
+   *Test Result <i>(in detail)</i>
+</mat-label>
+<textarea matInput rows="6" name="testresult" value="{{psname.psdata.testresult}}" required #testresult="ngModel" ngModel></textarea>
+<mat-error *ngIf="testresult.invalid">Update result to No result?</mat-error>
+<mat-error *ngIf="!testresult.dirty">The result did not update</mat-error>
+</mat-form-field>
+<button mat-flat-button [ngClass] = "'addbtncolor'" type="submit">Complete Test</button>
+</mat-card>
+</mat-dialog-content>
+</form>

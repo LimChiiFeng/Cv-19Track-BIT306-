@@ -1,0 +1,21 @@
+<button  *ngIf="history.length>0" [ngClass]="'addbtnfloatright'" (click)="onFilterComplete('complete')" >Complete</button>
+<button  *ngIf="history.length>0" mat-button color="accent" (click)="onFilterComplete('pending')" >Pending</button>
+<button *ngIf="history.length>0" mat-button color="primary" (click)="onFilterComplete()">All</button>
+<mat-accordion multi="true">
+  <mat-expansion-panel *ngFor="let test of history">
+    <mat-expansion-panel-header>
+      {{test.TestID}}
+    </mat-expansion-panel-header>
+    <p>Test Result: {{test.testresult}}</p>
+    <p>Test Date: {{test.testDate | date:"short"}}</p>
+    <p>Status: {{test.teststatus}}</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div [ngClass]="'notesterContainer'" *ngIf="history.length ==0 ">
+  <img src="../../assets/img/noFind.png" alt="No Test Result.png">
+  <h1> Oh,ooh</h1>
+  <p>There is no test report for this pokai yet.
+    Please Record a New Test if he/she was a new patient or check the Patient List to see if he/she has registered into the system </p>
+
+</div>

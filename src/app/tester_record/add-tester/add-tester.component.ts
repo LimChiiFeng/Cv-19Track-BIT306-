@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { MatDialogRef } from '@angular/material/dialog';
-import { TestersService } from '../tester.service';
+import { UsersService } from '../../user.service';
 
 @Component({
   selector: 'add-tester',
@@ -9,10 +9,10 @@ import { TestersService } from '../tester.service';
   styleUrls: ['./add-tester.component.css']
 })
 export class AddTesterComponent{
-    
+    constructor(private recordDialog:MatDialogRef<AddTesterComponent>,
+        public userService:UsersService){}
 
-    constructor(public testers:TestersService,private recordDialog:MatDialogRef<AddTesterComponent>){}
-
+    // To record a new tester
     recordTester(recordForm: NgForm){
         if(recordForm.invalid){
             return
@@ -21,11 +21,10 @@ export class AddTesterComponent{
         var password=recordForm.value.password;
         var name=recordForm.value.name;
 
-        this.testers.addTester(username,password,name);
-        console.log('Addding Success');
+        this.userService.addTester(username,password,name);
         recordForm.resetForm();
-        this.recordDialog.close();
-        
+        this.recordDialog.close();    
     }
 
 }
+

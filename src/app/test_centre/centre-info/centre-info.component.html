@@ -1,14 +1,8 @@
 <div class="test_centre_page">
-  <button mat-raised-button color="primary" (click)="centreRegDialog()" [disabled]="centre.length>0"> Create Test Centre </button>
+  <button mat-raised-button color="primary" (click)="centreRegDialog()" 
+    [disabled]="centre.length>0"> Create Test Centre </button>
   <br>
-  <!-- <mat-accordion *ngIf="centre.length>0">
-    <mat-expansion-panel *ngFor="let centre of centre">
-      <mat-expansion-panel-header>
-        {{ centre.centreID }}
-      </mat-expansion-panel-header>
-      <p> {{ centre.centreName }} </p>
-    </mat-expansion-panel>
-  </mat-accordion> -->
+  <!-- Test Centre Information -->
   <div class="centre" *ngIf="centre.length>0">
     <div *ngFor="let centre of centre">
       <h2> {{ centre.centreName }} </h2>
@@ -20,7 +14,10 @@
     </div>
   </div>
 
-  <p [ngStyle]="{'font-style': 'italic'}" *ngIf="centreService.getCentre().length<=0"> Your Test Centre have been approved, please register the centre name. </p>
+  <!-- Show the notification when the manager haven't register Test Centre -->
+  <p [ngStyle]="{'font-style': 'italic'}" *ngIf="centreService.getCentre().length<=0"> 
+      Your Test Centre have been approved, please register the centre name. 
+    </p>
 
 </div>
 

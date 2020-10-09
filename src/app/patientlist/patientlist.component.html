@@ -1,0 +1,43 @@
+<button *ngIf="testreportservice.getPatient().length>0" [ngClass]="'addbtnfloatright'" (click)="onAddPatientDialog()" >+ Add New Patient</button>
+<mat-form-field *ngIf="testreportservice.getPatient().length>0"><mat-label><mat-icon>search</mat-icon></mat-label><input matInput type="text" placeholder="Search" [(ngModel)]="srchStr" (keyup)="searchTest()"></mat-form-field>
+<mat-accordion multi="true" *ngIf="patientlist.length>0">
+  <mat-expansion-panel *ngFor="let patient of patientlist">
+    <p> Username: {{patient.username}}</p>
+    <mat-expansion-panel-header>
+      <span class="mat-content">
+        {{patient.patientName}}
+        <span class="actionbutton">
+          <button mat-icon-button (click)="show(patient)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button (click)="testreportservice.removePatient(patient)"><mat-icon>delete_outline</mat-icon></button>
+        </span>
+      </span>
+    </mat-expansion-panel-header>
+    <p>Patient Type: {{patient.patienttype}}</p>
+    <p>Symptom: {{patient.symptom}}</p>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div [ngClass]="'notesterContainer'" *ngIf="testreportservice.getPatient().length ==0 ">
+  <img src="../../assets/img/noTestResultHvBg-removebg-preview.png" alt="No Test Result.png" height="191px" width="249px">
+  <br>
+  <br>
+  <h1> Oh,ooh</h1>
+  <p>There is no patient report saved here yet. Please click the button below to register a new patient before create his/her test report</p>
+  <button [ngClass]="'nopatientadder'" (click)="onAddPatientDialog()">Add New Patient
+    <img src="../../assets/img/33Buli.png">
+    <img src="../../assets/img/33Buli.gif" class="addbtnclr">
+  </button>
+</div>
+
+<div [ngClass]="'notesterContainer'" *ngIf="patientlist.length ==0 && isblankb4srch">
+  <img src="../../assets/img/stop_constructing.png" alt="No Test Result.png">
+  <br>
+  <br>
+  <h1>No such patient found</h1>
+  <p>If you wish to add the patient. Please click the button below to sign him/her into the system</p>
+  <button [ngClass]="'searchfornone'" (click)="onAddPatientDialog()">Add New Patient
+  </button>
+</div>
+
+

@@ -15,8 +15,6 @@ export class TestKitsService {
     // {kitID: 16, testName:'Chemiluminescent Immunoassay', availableStock: 9, centreID: 1},
   ];
 
-  //
-
   getTestKit(){
     return this.testKit;
   }
@@ -32,7 +30,6 @@ export class TestKitsService {
   }
 
   addTestKit(testName:String, availableStock:number){
-    // console.log(this.getTestKit());
     var kitID = 0;
 
     if(this.getTestKit().length==0){
@@ -45,21 +42,10 @@ export class TestKitsService {
         })
         kitID++;
     }
-    // else {
-    //     this.getTestKit().forEach(res => {
-    //         if(kitID < res.kitID) {
-    //             kitID = res.kitID;
-    //         }
-    //     })
-    // kitID = kitID + 1;
-    // }
-      
 
-    const testKit: TestKit =  {kitID: kitID, testName:testName, availableStock:availableStock, centreID:null}
+    const testKit: TestKit =  {kitID: kitID, testName:testName, 
+        availableStock:availableStock, centreID:null}
     this.testKit.push(testKit);
-    console.log(this.testKit)
-    console.log(this.getTestKit())
-    console.log('Length: ' + this.getTestKit().length);
   }
 
   updateStockNum(kitID:number, stockNum: number){
@@ -82,3 +68,5 @@ export class TestKitsService {
       }
   }
 }
+
+

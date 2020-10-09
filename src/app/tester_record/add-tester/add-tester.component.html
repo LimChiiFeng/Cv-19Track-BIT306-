@@ -1,3 +1,4 @@
+<!-- Record new Tester Form-->
 <div class="recordNewTester">
     <mat-card>
         <div class="recordNewTester-header">
@@ -13,8 +14,11 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label> Password </mat-label>
-                    <input type="password" matInput name="password" ngModel #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-                    <mat-error *ngIf="password.invalid"> *Please enter a password length of 8 - 20, at least one number, one lower case and one upper case letter. </mat-error>
+                    <input type="password" matInput name="password" ngModel #password="ngModel" 
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                    <mat-error *ngIf="password.invalid"> 
+                        *Please enter a password length of 8 - 20, at least one number, 
+                        one lower case and one upper case letter. </mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label> Full Name </mat-label>
@@ -24,6 +28,6 @@
                 <button mat-flat-button type="submit" color="accent"> Register </button>
             </form>
         </mat-card-content>
-        
     </mat-card>
 </div>
+

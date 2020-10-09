@@ -6,27 +6,28 @@
         </mat-form-field>
     </div>
     <div class="testCentre_report">
-        <mat-card>
+        <!-- <mat-card> -->
             <div class="report-data">
                 <mat-accordion>
-                    <mat-expansion-panel *ngFor="let report of testers">
+                    <mat-expansion-panel *ngFor="let report of reports">
                       <mat-expansion-panel-header>
                         <mat-panel-title>
-                            {{report.name}}
+                            {{report.testName}}
                         </mat-panel-title>
                         <mat-panel-description>
-                            This is report status
-                        </mat-panel-description>
-                          
-                       
+                            {{ report.TestID }}
+                        </mat-panel-description>                       
                       </mat-expansion-panel-header>
-                      <p>Report Completed: {{report.username}}</p>
-                      <p>Password: {{report.password}}</p>
+                      <p>Patient Username   : {{report.patientusername}} </p>
+                      <p>Report Status      : {{report.teststatus}}</p>
+                      <p>Test Date          : {{report.testDate | date:"short"}}</p>
+                      <p>Result Date        : {{report.resultDate | date:"short"}}</p>
+
                     </mat-expansion-panel>
                     
                   </mat-accordion>
             </div>              
-        </mat-card>
+        <!-- </mat-card> -->
     </div>
     
 </div>

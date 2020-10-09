@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Record New Patient</h2>
+<form (submit)="onAddPatient(PatientList)" #PatientList="ngForm">
+<mat-dialog-content>
+<mat-card>
+
+  <mat-form-field>
+    <mat-label><i class="fas fa-address-card"></i> *UserName</mat-label>
+    <input matInput type="text" placeholder="e.g. jackywong@776"  name="username" ngModel required #patientname="ngModel">
+    <mat-error *ngIf="patientname.invalid">Please place a username. If you have placed a valid username, then your username is probably been taken</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label><mat-icon>vpn_key</mat-icon> *password</mat-label>
+    <input matInput type="text" placeholder="!$@fh6ca779!gh" name="password" ngModel required #password="ngModel">
+    <mat-error *ngIf="password.invalid">Please set a secure password for your account</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label><mat-icon>contacts</mat-icon> *NRIC Full Name</mat-label>
+    <input matInput type="text" placeholder="Please state your name according to your I/C" name="fullname" ngModel required #fullname="ngModel">
+    <mat-error *ngIf="fullname.invalid">You have no name?</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+  <mat-label><i class="fas fa-user-injured"></i> *Patient Type</mat-label>
+  <mat-select #patienttype="ngModel" ngModel required name="patienttype">
+    <mat-option>--</mat-option>
+    <mat-optgroup label="Negative">
+      <mat-option value="returnee">Returnee</mat-option>
+      <mat-option value="suspected">Suspected</mat-option>
+    </mat-optgroup>
+    <mat-optgroup label="Yellow Warning">
+      <mat-option value="quarantined">Quarantined</mat-option>
+      <mat-option value="closeContacted">Close Contact</mat-option>
+    </mat-optgroup>
+    <mat-optgroup label="Fatal(Think wisely before choosing this)">
+      <mat-option value="Infected">Infected</mat-option>
+    </mat-optgroup>
+  </mat-select>
+  <mat-error *ngIf="patienttype.invalid">Patient Type should not be blank</mat-error>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>
+    <mat-icon>sick</mat-icon>
+     *Symptom <i>(in detail)</i>
+  </mat-label>
+  <textarea matInput rows="6" name="symptom" ngModel #testresult="ngModel" required></textarea>
+  <mat-error *ngIf="testresult.invalid">This guy is all well?</mat-error>
+  </mat-form-field>
+<button mat-flat-button [ngClass] = "'addbtncolor'" type="submit">Register</button>
+
+</mat-card>
+</mat-dialog-content>
+</form>

@@ -1,32 +1,15 @@
 <div class="testerInfo">
     <div class="testerInfo-header">
-            <button mat-raised-button color="primary" name="addTester" (click)="recDialog()"> + New </button>
+            <button mat-raised-button color="primary" name="addTester" 
+            (click)="recDialog()"> + New </button>
             <mat-form-field>
-                <mat-placeholder>
-                <mat-icon> search </mat-icon>
-                <span> Search </span>
-                </mat-placeholder>
-            <!-- <input matInput type="text" name="searchName" id="searchName" [(ngModel)]="searchStr" (keyup)="searchTester()"> -->
-            <input matInput type="text" name="searchName" id="searchName" #searchName (keyup)="searchData($event)">
+                <mat-label> <mat-icon>search</mat-icon> Search </mat-label>
+            <input matInput type="text" name="searchName" id="searchName" 
+            #searchName (keyup)="searchData($event)">
             </mat-form-field>
     </div>
-
     <div class="testerInfo-list">
         <mat-card *ngIf="testers.length>0">
-            <!-- <table  matSort (matSortChange)="sortTester($event)">
-                <tr class="table-header">
-                    <th mat-sort-header="name">Full Name </th>
-                    <th> Username </th>
-                    <th> Password </th>
-                </tr>
-                <tr  class="table-content" *ngFor="let tester of testers">
-                    <td> {{ tester.name }} </td>
-                    <td> {{ tester.username }} </td>
-                    <td> ******* </td>
-                </tr>
-            </table> -->
-
-
             <table mat-table [dataSource]="testersData" matSort >
                 <ng-container matColumnDef="name">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name</th>
@@ -49,15 +32,16 @@
                 <tr class="mat-row" *matNoDataRow>
                     <td class="mat-cell" colspan="3"> No Result.  </td>
                 </tr>
-
             </table>
-
-            <mat-paginator *ngIf="testersService.getTesters().length>5" [pageSize]="5" showFirstLastButtons> </mat-paginator>
+            <mat-paginator [pageSize]="10" [length]="testers.length" showFirstLastButtons> 
+            </mat-paginator>
         </mat-card>
 
+        <!-- Show the message when no tester assigned -->
         <div class="noTester" *ngIf="testers.length==0">
             <p> Noted: This Test Centre doest not have any tester. Please record a new one. </p>
         </div>
 
     </div>
 </div>
+

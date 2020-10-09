@@ -3,6 +3,7 @@
 
       <button mat-raised-button color="primary" (click)="addKitDialog()"> + Add </button>
       
+      <!-- Search Bar -->
       <mat-form-field>
           <mat-label> <mat-icon>search</mat-icon> Search </mat-label>
         <input matInput type="text" name="searchName" id="searchName" [(ngModel)]="searchStr" (keyup)="search()">
@@ -12,8 +13,6 @@
 
   <div class="testKitInfo" *ngIf="kitsService.checkEmpty()==true">
     <mat-card class="mat-elevation-z4">
-        
-            
             <table matSort (matSortChange)="sortKit($event)" >
                 <thead>
                     <ng-container>
@@ -39,29 +38,11 @@
                 </tr>
               </table>
         </div>
-      
       <button mat-flat-button color="accent" (click)="updateKitDialog()" *ngIf="testKits.length!=0"> Update Stock</button>
     </mat-card>
   </div>
 </div>
 
-<p [ngStyle]="{'font-style': 'italic'}" *ngIf="kitsService.checkEmpty()==false"> Noted: This test centre does not have any test kit. Please add a new one. </p>
-
-<!-- <br>
-<br>
-<h2>Testing Table 2</h2>
-<table mat-table [dataSource]="kitsDataSource" >
-        <ng-container matColumnDef="testName">
-          <th class="testNameInfo"mat-header-cell *matHeaderCellDef [ngStyle]="{'width':'85%'}"> Test Name </th>
-          <td class="testNameInfo" mat-cell *matCellDef="let kit"> {{kit.testName}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="availableStock">
-          <th class="stockInfo" mat-header-cell *matHeaderCellDef> Available Stock </th>
-          <td class="stockInfo" mat-cell *matCellDef="let kit" > {{ kit.availableStock }}  </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
-      </table> -->
-
+<!-- To notice manager to add a new test kit -->
+<p [ngStyle]="{'font-style': 'italic'}" *ngIf="kitsService.checkEmpty()==false"> 
+    Noted: This test centre does not have any test kit. Please add a new one. </p>

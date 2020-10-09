@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-// import { format } from 'path';
 import { TestCentreService } from '../test_centre.service';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -10,8 +9,10 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./create-centre.component.css']
 })
 export class CreateCentreComponent{
-  constructor(public centreService:TestCentreService, private centreRef: MatDialogRef<CreateCentreComponent>){}
+  constructor(public centreService:TestCentreService, 
+    private centreRef: MatDialogRef<CreateCentreComponent>){}
 
+  //to register Test Centre
   centreCreate(centreForm: NgForm){
     if(centreForm.invalid){
       return;

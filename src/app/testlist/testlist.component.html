@@ -1,0 +1,36 @@
+<button *ngIf="testreportservice.getTest().length>0" [ngClass]="'addbtnfloatright'" (click)="onAddTestDialog()" >+ Add New Test</button>
+<mat-form-field *ngIf="testreportservice.getTest().length>0"><mat-label><mat-icon>search</mat-icon></mat-label><input matInput type="text" placeholder="Search" [(ngModel)]="srchStr" (keyup)="searchTest()"></mat-form-field>
+<mat-accordion multi="true" *ngIf="testlists.length>0">
+  <mat-expansion-panel *ngFor="let test of lists, let i = index">
+    <p> Index: {{test.TestID}}</p>
+    <mat-expansion-panel-header>
+      <span class="mat-content">
+        {{test.TestID}}||{{test.patientName}}
+        <span class="actionbutton">
+          <button mat-icon-button (click)="show(test)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button (click)="removeTest(test)"><mat-icon>delete_outline</mat-icon></button>
+        </span>
+      </span>
+    </mat-expansion-panel-header>
+    <p>Symptom: {{test.symptom}}</p>
+    <p>Test Date : {{test.testDate| date:'short'}}</p>
+    <p>Result Date: {{test.resultDate| date:'short'}}</p>
+    <p>Test Status: {{test.teststatus}}</p>
+    <p>Test Result: {{test.testresult}}</p>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div [ngClass]="'notesterContainer'" *ngIf="testreportservice.getTest().length ==0 ">
+  <img src="../../assets/img/no-data.png" alt="No Test Result.png">
+  <br>
+  <br>
+  <h1> Oh,ooh</h1>
+  <p>There is no test report saved here yet. Please click the button below to create a new test report</p>
+  <button mat-button (click)='onAddTestDialog()' [ngClass]="'addtestbtn'">Add New Test
+    <img src="../../assets/img/nodatabtn.png">
+    <img src="../../assets/img/CNYwritingrush.gif" class="addbtnclr">
+  </button>
+</div>
+
+

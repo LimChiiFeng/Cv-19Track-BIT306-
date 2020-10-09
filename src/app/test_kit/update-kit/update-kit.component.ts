@@ -12,29 +12,25 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class UpdateKitComponent implements OnInit {
     testKits: TestKit[] = [];
 
-    
-    constructor(public kitsService: TestKitsService, private updateKitDialog: MatDialogRef<UpdateKitComponent>) { }
+    constructor(public kitsService: TestKitsService, 
+        private updateKitDialog: MatDialogRef<UpdateKitComponent>) { }
 
+    //for retrieve current test kitsa
     ngOnInit(){
         this.testKits = this.kitsService.getTestKit();
     }
 
+    //to update the available stock
     updateStock(updateForm: NgForm){
         if(updateForm.invalid) {
             return;
         }
-        this.kitsService.updateStockNum(updateForm.value.kitID, updateForm.value.stockNum);
-        this.updateKitDialog.close();
+        this.kitsService.updateStockNum(updateForm.value.kitID, 
+            updateForm.value.stockNum);
         updateForm.resetForm();
-
-        // this.testKits.forEach(kit => {
-        //     if(updateForm.value.kitID === kit.kitID){
-        //         console.log(true)
-        //         console.log('kitID: '+kit.kitID);
-        //         kit.availableStock += updateForm.value.stockNum;
-        //         console.log('stock number: '+kit.availableStock)
-        //     }
-        // });
-        // console.log(updateForm.value.tname)
+           this.updateKitDialog.close();
+        
     }
 }
+
+

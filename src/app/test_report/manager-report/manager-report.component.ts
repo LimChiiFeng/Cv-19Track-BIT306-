@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TestersService } from '../../tester_record/tester.service';
+import { ReportService } from "../report.service";
 
 @Component({
   selector: 'manager-report',
@@ -7,14 +7,13 @@ import { TestersService } from '../../tester_record/tester.service';
   styleUrls: ['./manager-report.component.css']
 })
 export class ManagerReportComponent implements OnInit {
-    testers: any [] = [];
+    reports: any [] = [];
     searchStr: string;
 
-  constructor(public testerService: TestersService) { }
+  constructor(public reportService: ReportService) { }
 
   ngOnInit(): void {
-      this.testers = this.testerService.getTesters();
-      console.log(this.testers);
+      this.reports = this.reportService.getTest();
   }
 
     searchReport(){
@@ -22,9 +21,11 @@ export class ManagerReportComponent implements OnInit {
         this.ngOnInit();
         } else{
             
-        this.testers = this.testerService.getTesters().filter(res=>{
-            return res.name.toLocaleLowerCase().match(this.searchStr.toLocaleLowerCase());
+        this.reports = this.reportService.getTest().filter(res=>{
+            return res.testName.toLocaleLowerCase().match(
+                this.searchStr.toLocaleLowerCase());
             })
         }
     }
 }
+

@@ -4,35 +4,32 @@ import { Injectable } from '@angular/core';
 @Injectable({providedIn:'root'})
 
 export class TestCentreService {
-  private centre: TestCentre[] = [
-    // {centreID: 1, centreName:'Test Centre 1'},
-    // {centreID: 4, centreName:'Chung Hwa Test Centre'},
-    // {centreID: 7, centreName:'Test Centre 3'},
-    // {centreID: 10, centreName:'Test Centre 4'}
-   ];
+  private centre: TestCentre[] = [];
 
   getCentre(){
     return this.centre;
   }
 
   createCentre(centreName:String){
+    //Auto generate function
     var centreID: number = 0;
 
     if(this.getCentre().length==0){
+        //set the id to 1 when it is a empty data
       centreID = this.getCentre().length + 1;
     } else {
+        //to find the largest ID for generate continuously
         this.getCentre().forEach(res=>{
             if(centreID < res.centreID){
                 centreID = res.centreID
             }
             centreID++;
         })
-    //   centreID = this.getCentre()[this.getCentre().length-1].centreID + 1;
     }
 
+    //push the Test Centre into array
     const centre: TestCentre = {centreID: centreID, centreName:centreName}
     this.centre.push(centre);
-    // console.log('centreID: '+ centreID + ', centreName: ' + centreName);
-    console.log(this.centre)
   }
 }
+

@@ -1,3 +1,4 @@
+<!-- Register Test Centre Form -->
 <mat-card>
   <div class="dialog-header">
     <h1 mat-dialog-title> Test Centre Registration </h1>
@@ -11,7 +12,8 @@
         <input matInput type="text" name="centreName" ngModel #centreName="ngModel" required>
         <mat-error *ngIf="centreName.invalid"> Please enter a centre name </mat-error>
       </mat-form-field>
-        <button mat-flat-button color="accent" type="submit" name="registerCentre" id="registerCentre" > Register </button>
+        <button mat-flat-button color="accent" type="submit" 
+        name="registerCentre" id="registerCentre" > Register </button>
     </form>
   </mat-dialog-content>
 </mat-card>

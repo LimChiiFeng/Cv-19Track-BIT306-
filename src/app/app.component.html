@@ -1,76 +1,65 @@
-<logo></logo>
-<main>
+<logo *ngIf="checkTesterNav ==true"></logo>
+<div class="testerClass" id="testerClass" [ngStyle]="{display: 'none'}">
+    <ejs-sidebar id="default-sidebar" #sidebar (created)="onCreated($event)"  [showBackdrop]="true" [width]="width"  [closeOnDocumentClick]="closeOnDocumentClick">
+        <div class="title">Side bar content</div>
+        <div class="center-align">
+          <button ejs-button id="close" (click)="closeClick()">Close Sidebar</button>
+        </div>
+      </ejs-sidebar>
+      <div>
+      
+      <h2>Lim Chii Feng's Covid 19 Tracker</h2>
+      <app-header></app-header>
+      <main>
+      
+      <div class="center-align">
+                <button ejs-button id="toggle" (click)="toggleClick()"> Show slideMenu </button>
+            </div>
+      
+      <!--a mat-button color="primary" routerLink="/recordnewtest">Add New Test</a-->
+      <div class="testerNav">
+        <a mat-button color="accent" routerLink="/reportlist" routerLinkActive="active">Record New Test</a>
+        <a mat-button color="accent" routerLink="/patientlist" routerLinkActive="active">Patient List</a>
+        <a mat-button color="accent" routerLink="/viewhistory" routerLinkActive="active">View History</a>
+      </div>
+       
+       <router-outlet></router-outlet>
+      </main>
+      </div>
+</div>
 
-    <mat-card>
-        <form name="userForm" ngForm #userForm="ngForm" (submit)="login(userForm)">
-            <mat-form-field>
-                <mat-label> Username </mat-label>
-                <input matInput type="text" name="username" ngModel #username="ngModel" required>
-                <mat-error *ngIf="username.invalid"> Please enter username </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label> Password </mat-label>
-                <input matInput type="password" name="password" ngModel #password="ngModel" required>
-                <mat-error *ngIf="password.invalid"> Please enter password </mat-error>
-            </mat-form-field>
-            <button type="submit" mat-raised-button> Login  </button>
-        </form>
-    </mat-card>
-
+<main class="managerMainClass">
+    <div class="login" id="login">
+        <mat-card>
+            <div class="login-header">
+                <h2 mat-card-title> Sign In </h2>
+            </div>
+            <form name="userForm" ngForm #userForm="ngForm" (submit)="login(userForm)">
+                <mat-form-field>
+                    <mat-label> Username </mat-label>
+                    <input matInput type="text" name="username" ngModel #username="ngModel" required>
+                    <mat-error *ngIf="username.errors"> Please enter username </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label> Password </mat-label>
+                    <input matInput type="password" name="password" ngModel #password="ngModel" required>
+                    <mat-error *ngIf="password.invalid" id="psswordError"> Please enter password </mat-error>
+                </mat-form-field>
+                <button type="submit" mat-raised-button color="primary"> Login  </button>
+            </form>
+        </mat-card>
+    </div>
 
     <!-- For Manager user -->
-    <!-- <div class="managerPage">
+    <div class="managerNav" id="managerNav" [ngStyle]="{display: 'none'}">
         <mat-toolbar>
             <ul>
-              <li><a routerLink="/testCentre" routerLinkActive="active">Test Centre</a> </li>
+              <li><a routerLink="/testCentre" routerLinkActive="active">Test Centre </a> </li>
               <li *ngIf="centre.length>0"><a routerLink="/recordTester" routerLinkActive="active">Tester</a></li>
               <li *ngIf="centre.length>0"><a routerLink="/testKit" routerLinkActive="active">Test Kit</a></li>
               <li *ngIf="centre.length>0"><a routerLink="/managerReport" routerLinkActive="active"> Report </a></li>
             </ul>
         </mat-toolbar>
-    </div> -->
-    
-    <!-- For Tester user -->
-    <!-- <div class="testerPage">
-        <mat-toolbar>
-            <ul>
-                <li><a routerLink="/newTest" routerLinkActive="active">New Test</a></li>
-            </ul>
-        </mat-toolbar>
-    </div> -->
-
-    <!-- For Patient user -->
-    <!-- <div class="patientPage">
-        <mat-toolbar>
-            <ul>
-              <li> <a routerLink=""> View History </a> </li>
-            </ul>
-        </mat-toolbar>
-    </div> -->
-
-
-    <!-- For Officer user -->
-    <!-- <div class="OfficerPage">
-        <mat-toolbar>
-            <ul>
-              
-            </ul>
-        </mat-toolbar>
-    </div> -->
-
+    </div> 
   <router-outlet></router-outlet>
-  <!-- <br>
-  <hr>
-  <br> -->
-  
-  <!-- Testing Area -->
-
-  <!-- <testlist></testlist> -->
-  <!-- <create-centre></create-centre> -->
-  <!-- <centre-info></centre-info> -->
-  <!-- <add-kit></add-kit> -->
-  <!-- <update-kit></update-kit> -->
-  <!-- <add-tester></add-tester> -->
 </main>
-
-<!-- 这个你就直接comment掉我的part 然后丢你的router下去 -->
